@@ -1,0 +1,13 @@
+{
+  "emulators": {
+    "database": {
+      "host": "localhost",
+      "port": "7000",
+      "rules": "database.rules.json"
+    },
+    "ui": {
+      "enabled": true,
+      "port": 8081
+    }
+  }
+}

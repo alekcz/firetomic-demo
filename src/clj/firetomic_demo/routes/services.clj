@@ -36,8 +36,8 @@
 
    ;; swagger documentation
    ["" {:no-doc true
-        :swagger {:info {:title "my-api"
-                         :description "https://cljdoc.org/d/metosin/reitit"}}}
+        :swagger {:info {:title "firetomic-demo"
+                         :description "https://github.com/alekcz/firetomic-demo"}}}
 
     ["/swagger.json"
      {:get (swagger/create-swagger-handler)}]
@@ -53,7 +53,13 @@
 
    ["/food"
     {:swagger {:tags ["food"]}}
-
+    
+    ["/list"
+     {:get  {:summary "list the foods you've eaten"
+             :handler (fn [_]
+                        (let [res (logic/list-food)]
+                          {:status (first res)
+                           :body (second res)}))}}]
     ["/upsert"
      {:post {:summary "insert or update food records"
              :parameters {:body map?}
@@ -71,6 +77,13 @@
    ["/restaurant"
     {:swagger {:tags ["restaurant"]}}
 
+    ["/list"
+     {:get  {:summary "list the restaurants you've eaten at"
+             :handler (fn [_]
+                        (let [res (logic/list-restaurants)]
+                          {:status (first res)
+                           :body (second res)}))}}]
+
     ["/upsert"
      {:post {:summary "insert or update restaurant records"
              :parameters {:body map?}
@@ -84,5 +97,47 @@
              :handler (fn [{{:keys [body]}  :parameters}]
                         (let [res (logic/delete-restaurant body)]
                           {:status (first res)
-                           :body (second res)}))}}]]                           
+                           :body (second res)}))}}]]
+
+   ["/query"
+    {:swagger {:tags ["query"]}}
+
+    ["/fave"
+     {:post {:summary "favourite food"
+             :parameters {:body map?}
+             :handler (fn [{{:keys [body]}  :parameters}]
+                        (let [res (logic/query-fave body)]
+                          {:status (first res)
+                           :body (second res)}))}}]
+    ["/value"
+     {:post {:summary "the best value for money"
+             :parameters {:body map?}
+             :handler (fn [{{:keys [body]}  :parameters}]
+                        (let [res (logic/query-value body)]
+                          {:status (first res)
+                           :body (second res)}))}}]
+                           
+    ["/best-in-town"
+     {:post {:summary "the best value for money"
+             :parameters {:body map?}
+             :handler (fn [{{:keys [body]}  :parameters}]
+                        (let [res (logic/query-best-in-town body)]
+                          {:status (first res)
+                           :body (second res)}))}}]
+    ["/best-5"
+     {:post {:summary "the best value for money"
+             :parameters {:body map?}
+             :handler (fn [{{:keys [body]}  :parameters}]
+                        (let [res (logic/query-best-5 body)]
+                          {:status (first res)
+                           :body (second res)}))}}]
+    ["/best-best"
+     {:post {:summary "the best value for money"
+             :parameters {:body map?}
+             :handler (fn [{{:keys [body]}  :parameters}]
+                        (let [res (logic/query-best-best body)]
+                          {:status (first res)
+                           :body (second res)}))}}]
+                           
+                           ]                           
   ])

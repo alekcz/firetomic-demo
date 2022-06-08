@@ -5,10 +5,12 @@
             [datahike.api :as d]))
 
 
-(defonce datahike-config {:store {:backend :firebase 
-                              :db "http://localhost:9000"
-                              :root "datahike"
-                              :env "GOOGLE_APPLICATION_CREDENTIALS"}
+(defonce datahike-config {:store {:backend :mem 
+                                  :name "default"
+                                  ;:db "http://localhost:9000"
+                                  ;:root "datahike"
+                                  ;:env "GOOGLE_APPLICATION_CREDENTIALS"
+                                  }
                       :schema-flexibility :read
                       :keep-history? true})
 
@@ -27,6 +29,10 @@
       (alter-var-root #'conn (fn [_] (d/connect config))))))
 
 
+(defn list-food []
+  (println "list stuff")
+  [200 (assoc {} :server-message "the food you've eaten")])
+
 (defn upsert-food [data]
   (println "do stuff with" data)
   [200 (assoc data :server-message "thanks for the food data")])
@@ -35,6 +41,10 @@
   (println "do stuff with" data)
   [200 (assoc data :server-message "bye-bye food data")])
 
+(defn list-restaurants []
+  (println "list stuff")
+  [200 (assoc {} :server-message "some cool places to eat")])
+
 (defn upsert-restaurant [data]
   (println "do stuff with" data)
   [200 (assoc data :server-message "thanks for the restaurant data")])
@@ -42,3 +52,24 @@
 (defn delete-restaurant [data]
   (println "do stuff with" data)
   [200 (assoc data :server-message "bye-bye restaurant data")])
+
+(defn query-fave [data]
+  (println "do stuff with" data)
+  [200 (assoc data :server-message "your favourite is")])
+
+(defn query-value [data]
+  (println "do stuff with" data)
+  [200 (assoc data :server-message "best value for money is")])
+
+(defn query-best-in-town [data]
+  (println "do stuff with" data)
+  [200 (assoc data :server-message "the best in town is")])
+
+(defn query-best-5 [data]
+  (println "do stuff with" data)
+  [200 (assoc data :server-message "the best 5 are")])
+
+(defn query-best-best [data]
+  (println "do stuff with" data)
+  [200 (assoc data :server-message "the best of them all is")])
+
