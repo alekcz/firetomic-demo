@@ -9,7 +9,6 @@
     [reitit.ring.middleware.parameters :as parameters]
     [firetomic-demo.middleware.formats :as formats]
     [ring.util.http-response :refer [ok]]
-    [cheshire.core :as json]
     [firetomic-demo.logic :as logic]))
 
 (defn service-routes []
@@ -62,14 +61,14 @@
                            :body (second res)}))}}]
     ["/upsert"
      {:post {:summary "insert or update food records"
-             :parameters {:body map?}
+             :parameters {:body {:id any? :name any? :rating number? :price double? :restaurantid any?}}
              :handler (fn [{{:keys [body]}  :parameters}]
                         (let [res (logic/upsert-food body)]
                           {:status (first res)
                            :body (second res)}))}}]
     ["/delete"
      {:post {:summary "delete a food record"
-             :parameters {:body map?}
+             :parameters {:body {:id any?}}
              :handler (fn [{{:keys [body]}  :parameters}]
                         (let [res (logic/delete-food body)]
                           {:status (first res)

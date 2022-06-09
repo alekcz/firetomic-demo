@@ -2,7 +2,7 @@
   "emulators": {
     "database": {
       "host": "localhost",
-      "port": "7000",
+      "port": "9000",
       "rules": "database.rules.json"
     },
     "ui": {

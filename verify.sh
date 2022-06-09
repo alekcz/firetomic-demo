@@ -7,4 +7,4 @@ echo "SUCCESS: Node $(node --version) installed" || echo "ERROR: could not locat
 echo "SUCCESS: NPM v$(npm --version) installed" || echo "ERROR: could not locate npm"
 echo "SUCCESS: Firebase emulator v$(firebase --version) installed" || echo "ERROR: could not locate firebase emulator."
 echo "SUCCESS: $(docker --version) installed" || echo "ERROR: could not locate docker"
-lein run
+lein deps
