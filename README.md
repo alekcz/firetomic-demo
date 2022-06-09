@@ -1,4 +1,6 @@
-# Getting Started with Firetomic [:clojureD 2022]
+# Getting Started with Firetomic 
+
+[:clojureD 2022](https://clojured.de/)
 
 In this session we're going to build an app that uses firetomic. With this app you'll be able to safe guard your loved ones from food envy. Once and for all. 
 Haha, I know. It's crazy to think someone built datomic on firebase. But here we are. This will be a very practical workshop. If you're like and have always wanted to do more than store Bob's age and email address, then this is the one for you. We will not be going from 0 to a 100 real quick. We'll rather do so at a medium pace. Like when you run-walk to receive your delivery because you don't want to scare the delivery guy with your excitement.
