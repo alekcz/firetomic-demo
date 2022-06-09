@@ -136,7 +136,4 @@
              :handler (fn [{{:keys [body]}  :parameters}]
                         (let [res (logic/query-best-best body)]
                           {:status (first res)
-                           :body (second res)}))}}]
-                           
-                           ]                           
-  ])
+                           :body (second res)}))}}]]])
