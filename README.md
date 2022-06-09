@@ -1,6 +1,4 @@
-# Getting Started with Firetomic, ClojureD 2022
-
-Presented by Alex Oloo at [:clojureD](https://clojured.de/schedule/)
+# Getting Started with Firetomic [:clojureD 2022]
 
 In this session we're going to build an app that uses firetomic. With this app you'll be able to safe guard your loved ones from food envy. Once and for all. 
 Haha, I know. It's crazy to think someone built datomic on firebase. But here we are. This will be a very practical workshop. If you're like and have always wanted to do more than store Bob's age and email address, then this is the one for you. We will not be going from 0 to a 100 real quick. We'll rather do so at a medium pace. Like when you run-walk to receive your delivery because you don't want to scare the delivery guy with your excitement.
@@ -40,4 +38,4 @@ Oh, you're still here. Not keen on going outside hey. Well you could also watch 
 - [Domain modeling with Datalog](https://youtu.be/oo-7mN9WXTw)
 
 ## Stuck? Got questions?
-If you get stuck ping me in [#firetomic] channel on the clojurians slack. Catch y'all later. 
+If you get stuck ping me in #firetomic channel on the clojurians slack. Catch y'all later. 
