@@ -5,12 +5,10 @@
             [datahike.api :as d]))
 
 
-(defonce datahike-config {:store {:backend :mem 
-                                  :name "default"
-                                  ;:db "http://localhost:9000"
+(defonce datahike-config {:store {;:db "http://localhost:9000"
                                   ;:root "datahike"
                                   ;:env "GOOGLE_APPLICATION_CREDENTIALS"
-                                  }
+                                  :backend :mem}
                       :schema-flexibility :read
                       :keep-history? true})
 
@@ -23,7 +21,7 @@
 (defn init-db [config]
   (try
     (alter-var-root #'conn (fn [_] (d/connect config)))
-    (catch Exception e 
+    (catch Exception _ 
       (println "Failed to connect to db. Building new db")
       (build-db config)
       (alter-var-root #'conn (fn [_] (d/connect config))))))

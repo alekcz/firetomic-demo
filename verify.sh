@@ -5,15 +5,8 @@ then
   echo "ERROR: could not locate java"
   exit 1
 else
-  echo -n "SUCCESS: Java v$(java -version 2>&1 | awk -F '"' 'NR==1 {print $2}') installed"
-fi
-
-if ! command -v clj &> /dev/null
-then
-  echo "ERROR: could not locate clojure cli" >&2
-  exit 1
-else
-  echo "SUCCESS: Clojure CLI v$(clj --version | awk -F 'version ' 'NR==1 {print $2}') installed"
+  echo -n "SUCCESS: Java v$(java -version 2>&1 | awk -F '"' 'NR==1 {print $2}') installed";
+  echo ""
 fi
 
 if ! command -v lein &> /dev/null 
