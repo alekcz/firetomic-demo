@@ -10,7 +10,7 @@ If you're an experience datahike or datomic user this session probably isn't for
 ## Getting started
 
 - Clone https://github.com/alekcz/firetomic-demo.git and `cd` into it. 
-- You need Java of somesort (8+ should be fine)
+- You need Java of some sort (8+ should be fine)
 - You need code editor with syntax highlighting
 - Install node, npm and then the firebase emulator so we don't all connect to the wifi crash it (`npm install -g firebase-tools@10.1.2`)
 - Install docker
@@ -40,4 +40,4 @@ Oh, you're still here. Not keen on going outside hey. Well you could also watch 
 - [Domain modeling with Datalog](https://youtu.be/oo-7mN9WXTw)
 
 ## Stuck? Got questions?
-If you get stuck ping me in #firetomic channel on the clojurians slack. Catch y'all later. 
+If you get stuck or have questions, ping me in #firetomic channel on the clojurians slack. Catch y'all later. 
