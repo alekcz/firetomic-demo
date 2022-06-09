@@ -13,7 +13,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Install dependencies 
+    - name: Install and verify dependencies 
       run: |
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         brew install clojure/tools/clojure
@@ -22,5 +22,4 @@ jobs:
         export PATH=~/.npm-global/bin:$PATH
         source ~/.profile
         npm install -g firebase-tools@10.1.2
-    - name: Verify dependencies 
-      run: bash verify.sh
+        bash verify.sh
