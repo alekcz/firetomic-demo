@@ -59,6 +59,14 @@
                         (let [res (logic/list-food)]
                           {:status (first res)
                            :body (second res)}))}}]
+
+    ["/list-with-pull"
+     {:get  {:summary "list the foods you've eaten"
+             :handler (fn [_]
+                        (let [res (logic/list-food-with-pull)]
+                          {:status (first res)
+                           :body (second res)}))}}]
+
     ["/upsert"
      {:post {:summary "insert or update food records"
              :parameters {:body {:id any? :name any? :rating number? :price double? :restaurantid any?}}
@@ -83,16 +91,23 @@
                           {:status (first res)
                            :body (second res)}))}}]
 
+    ["/list-with-pull"
+     {:get  {:summary "list the restaurants you've eaten at"
+             :handler (fn [_]
+                        (let [res (logic/list-restaurants-with-pull)]
+                          {:status (first res)
+                           :body (second res)}))}}]
+
     ["/upsert"
      {:post {:summary "insert or update restaurant records"
-             :parameters {:body map?}
+             :parameters {:body {:id any? :name any? :location any?}}
              :handler (fn [{{:keys [body]}  :parameters}]
                         (let [res (logic/upsert-restaurant body)]
                           {:status (first res)
                            :body (second res)}))}}]
     ["/delete"
      {:post {:summary "delete a restaurant record"
-             :parameters {:body map?}
+             :parameters {:body {:id any?}}
              :handler (fn [{{:keys [body]}  :parameters}]
                         (let [res (logic/delete-restaurant body)]
                           {:status (first res)
@@ -118,7 +133,7 @@
                            
     ["/best-in-town"
      {:post {:summary "the best value for money"
-             :parameters {:body map?}
+             :parameters {:body {:location string?}}
              :handler (fn [{{:keys [body]}  :parameters}]
                         (let [res (logic/query-best-in-town body)]
                           {:status (first res)
@@ -135,5 +150,13 @@
              :parameters {:body map?}
              :handler (fn [{{:keys [body]}  :parameters}]
                         (let [res (logic/query-best-best body)]
+                          {:status (first res)
+                           :body (second res)}))}}]
+                           
+    ["/evolution"
+     {:post {:summary "see how foods rating changes"
+             :parameters {:body {:id string?}}
+             :handler (fn [{{:keys [body]}  :parameters}]
+                        (let [res (logic/query-evolution body)]
                           {:status (first res)
                            :body (second res)}))}}]]])
