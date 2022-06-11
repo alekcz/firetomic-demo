@@ -39,5 +39,22 @@ Oh, you're still here. Not keen on going outside hey. Well you could also watch 
 - [Hitchhiker trees](https://youtu.be/jdn617M3-P4)
 - [Domain modeling with Datalog](https://youtu.be/oo-7mN9WXTw)
 
+
+## Running Firetomic locally
+
+```bash
+docker run \
+  --env FIRETOMIC_NAME=clojured \
+  --env FIRETOMIC_DB=http://host.docker.internal:9000 \
+  --env FIRETOMIC_KEEP_HISTORY=true \
+  --env FIRETOMIC_PORT=4000 \
+  --env FIRETOMIC_TOKEN=foshizzle \
+  --env FIRETOMIC_DEV_MODE=true \
+  -p 4000:4000 \
+  --add-host host.docker.internal:host-gateway \
+  alekcz/firetomic:latest
+```
+
+
 ## Stuck? Got questions?
 If you get stuck or have questions, ping me in #firetomic channel on the clojurians slack. Catch y'all later. 

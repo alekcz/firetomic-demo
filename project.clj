@@ -7,6 +7,7 @@
                  [ch.qos.logback/logback-classic "1.2.10"]
                  [clojure.java-time "0.3.3"]
                  [cprop "0.1.19"]
+                 [clj-http/clj-http "3.12.3"]
                  [expound "0.9.0"]
                  [funcool/struct "1.4.0"]
                  [json-html "0.4.7"]
